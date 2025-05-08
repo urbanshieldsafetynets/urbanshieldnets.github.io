@@ -2889,3 +2889,76 @@ body.building-safety-nets .service-box:nth-child(2) {
     0% { opacity: 0; transform: scale(0.95); }
     100% { opacity: 1; transform: scale(1); }
   }
+
+
+/*extra  */
+/* Mobile Navbar Styles */
+@media (max-width: 768px) {
+  .us-stamp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--secondary-color);
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  nav ul.active {
+    display: flex;
+    animation: slideDown 0.5s ease forwards;
+  }
+
+  @keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  nav ul li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  nav ul li a {
+    font-size: 1.2rem;
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    background-color: var(--light-gray);
+    padding: 10px;
+  }
+
+  .dropdown-menu.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  nav ul li.dropdown {
+    position: relative;
+  }
+
+  /* Disable hover effect on mobile */
+  nav ul li.dropdown:hover .dropdown-menu {
+    display: none;
+  }
+}
