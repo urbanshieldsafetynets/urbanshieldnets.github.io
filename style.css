@@ -368,7 +368,7 @@ nav ul li.dropdown {
 /* Mobile Navbar Styles */
 @media (max-width: 768px) {
   .us-stamp {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
   }
@@ -415,6 +415,7 @@ nav ul li.dropdown {
     background-color: var(--light-gray);
     padding: 10px;
   }
+  .dropdown-menu li a { z-index: 1002; }
 
   .dropdown-menu.active {
     display: block;
@@ -428,9 +429,16 @@ nav ul li.dropdown {
 
   nav ul li.dropdown {
     position: relative;
+    cursor: pointer;
   }
 }
 
+@media (min-width: 769px) {
+  nav ul li.dropdown:hover .dropdown-menu {
+    display: block;
+    animation: dropdownFade 0.5s ease forwards;
+  }
+}
 /* Hero Slider Styles */
 .hero-slider {
   height: 100vh;
@@ -533,8 +541,8 @@ nav ul li.dropdown {
 .book-service-btn {
   display: inline-block;
   padding: 12px 30px;
-  background-color:#FF6B00;
-  color: #FFFFFF;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   border-radius: 5px;
   font-weight: 600;
   margin-left: 20px;
@@ -2891,74 +2899,291 @@ body.building-safety-nets .service-box:nth-child(2) {
   }
 
 
-/*extra  */
-/* Mobile Navbar Styles */
+
+  
+  /* More Safety Net Services Section Styles */
+.more-safety-services {
+  padding: 80px 0;
+  background-color: var(--light-gray);
+}
+
+.more-safety-services .section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.more-safety-services .section-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  animation: upDown 2s infinite ease-in-out;
+}
+
+.more-safety-services .orange-divider {
+  height: 3px;
+  width: 80px;
+  background-color: var(--primary-color);
+  margin: 0 auto;
+  position: relative;
+  animation: stretch 1.5s ease forwards;
+}
+
+.more-safety-services .orange-divider::after {
+  content: '';
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  top: -3.5px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: pulseDot 1.5s infinite;
+}
+
+.more-safety-services .service-description {
+  font-size: 1.2rem;
+  color: var(--dark-gray);
+  margin-top: 10px;
+  /* opacity: 0; */
+  transform: translateY(20px);
+  animation: slideUpFade 1s ease forwards;
+}
+
+.services-slider {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.safety-service-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 360px;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.safety-service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  animation: hoverLift 0.5s ease;
+}
+
+.service-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: var(--transition);
+}
+
+.safety-service-card:hover .service-image {
+  transform: scale(1.1);
+  animation: zoomIn 0.5s ease;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.safety-service-card:hover .image-overlay {
+  opacity: 1;
+  animation: fadeInOverlay 0.5s ease;
+}
+
+.service-details {
+  padding: 20px;
+  text-align: center;
+}
+
+.service-details h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.service-details p {
+  font-size: 1rem;
+  color: var(--dark-gray);
+  margin-bottom: 15px;
+}
+
+.service-cta {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 5px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.service-cta:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  animation: bounceBtn 0.5s ease;
+}
+
+.service-cta i {
+  margin-left: 5px;
+  transition: var(--transition);
+}
+
+.service-cta:hover i {
+  transform: translateX(5px);
+  animation: slideRight 0.3s ease;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .us-stamp {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .more-safety-services .section-header h2 {
+    font-size: 2rem;
   }
 
-  .menu-toggle {
-    display: block;
+  .more-safety-services .service-description {
+    font-size: 1rem;
   }
 
-  nav ul {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--secondary-color);
-    padding: 20px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  .safety-service-card {
+    min-width: 280px;
   }
 
-  nav ul.active {
-    display: flex;
-    animation: slideDown 0.5s ease forwards;
+  .service-image {
+    height: 180px;
   }
 
-  @keyframes slideDown {
-    0% { opacity: 0; transform: translateY(-20px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-
-  nav ul li {
-    margin: 10px 0;
-    text-align: center;
-  }
-
-  nav ul li a {
+  .service-details h3 {
     font-size: 1.2rem;
   }
 
+  .service-details p {
+    font-size: 0.9rem;
+  }
+
+  .service-cta {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation Classes */
+.animate-zoom {
+  /* opacity: 0; */
+  transform: scale(0.9);
+  transition: var(--transition);
+}
+
+.animate-zoom.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+
+/* Mobile Navbar Styles */
+@media (max-width: 768px) {
+  .logo-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+  }
+  
+  .menu-toggle {
+      display: block;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--primary-color);
+      z-index: 1001;
+  }
+  
+  nav ul {
+      display: none;
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background-color: var(--secondary-color);
+      padding: 20px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+  }
+  
+  nav ul.active {
+      display: block;
+      animation: slideDown 0.3s ease forwards;
+  }
+  
+  @keyframes slideDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  nav ul li {
+      margin: 15px 0;
+      text-align: center;
+  }
+  
+  nav ul li a {
+      font-size: 1.1rem;
+      padding: 10px;
+      display: block;
+  }
+  
   .dropdown-menu {
-    position: static;
-    display: none;
-    box-shadow: none;
-    background-color: var(--light-gray);
-    padding: 10px;
+      position: static;
+      display: none;
+      background-color: rgba(255, 107, 0, 0.1);
+      padding: 0;
+      margin-top: 10px;
+      box-shadow: none;
+      border-radius: 5px;
   }
-
+  
   .dropdown-menu.active {
-    display: block;
-    animation: fadeIn 0.3s ease;
+      display: block;
+      animation: fadeIn 0.3s ease;
   }
-
-  @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+  
+  .dropdown-menu li {
+      margin: 10px 0;
   }
-
-  nav ul li.dropdown {
-    position: relative;
+  
+  .dropdown-menu li a {
+      font-size: 1rem;
+      padding: 8px;
   }
-
-  /* Disable hover effect on mobile */
-  nav ul li.dropdown:hover .dropdown-menu {
-    display: none;
+  
+  .dropdown.active > a {
+      color: var(--primary-color);
+  }
+  
+  .dropdown > a i {
+      transition: transform 0.3s ease;
+  }
+  
+  .dropdown.active > a i {
+      transform: rotate(180deg);
   }
 }
