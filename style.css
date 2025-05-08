@@ -533,8 +533,8 @@ nav ul li.dropdown {
 .book-service-btn {
   display: inline-block;
   padding: 12px 30px;
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  background-color:#FF6B00;
+  color: #FFFFFF;
   border-radius: 5px;
   font-weight: 600;
   margin-left: 20px;
