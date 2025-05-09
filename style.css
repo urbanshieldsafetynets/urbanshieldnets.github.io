@@ -3189,5 +3189,7 @@ body.building-safety-nets .service-box:nth-child(2) {
 }
 
 .my-comp{
-  color:blue;
+  background: #79FF68;
+background: linear-gradient(to left, #4df437 14%, #f73f3c 78%);
+color: #000000;
 }
