@@ -3187,3 +3187,7 @@ body.building-safety-nets .service-box:nth-child(2) {
       transform: rotate(180deg);
   }
 }
+
+.my-comp{
+  color:blue;
+}
